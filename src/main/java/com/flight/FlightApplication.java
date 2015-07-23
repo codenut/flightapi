@@ -18,15 +18,15 @@ public class FlightApplication extends Application<FlightApplicationConfiguratio
 
     @Override
     public void run(FlightApplicationConfiguration configuration, Environment environment) {
-        Map<Route, Airlines> routeDict = null;
+        Map<Route, Airlines> routeCache;
 
         if(configuration.getData() == null) {
-            routeDict = CSVUtil.csvToDict();
+            routeCache = CSVUtil.csvToDict();
         } else {
-            routeDict = CSVUtil.csvToDict(configuration.getData());
+            routeCache = CSVUtil.csvToDict(configuration.getData());
         }
 
-        final RouteResource routeResource = new RouteResource(routeDict);
+        final RouteResource routeResource = new RouteResource(routeCache);
         environment.jersey().register(routeResource);
     }
 

@@ -3,6 +3,7 @@ package com.flight.api.resources;
 import com.flight.api.core.Airlines;
 import com.flight.api.core.FlightResponse;
 import com.flight.api.core.Route;
+import com.flight.api.util.Constants;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -14,19 +15,19 @@ import java.util.Map;
 @Path("/route")
 @Produces(MediaType.APPLICATION_XML)
 public class RouteResource {
-    private Map<Route, Airlines> routeDict;
+    private Map<Route, Airlines> routeCache;
 
     public RouteResource(Map<Route, Airlines> routeDict) {
-        this.routeDict = routeDict;
+        this.routeCache = routeDict;
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_XML)
     public FlightResponse post(Route route) {
-        if(routeDict.containsKey(route)) {
-            return routeDict.get(route);
+        if(routeCache.containsKey(route)) {
+            return routeCache.get(route);
         } else {
-            return new FlightResponse("Route not found.");
+            return new FlightResponse(Constants.ROUTE_NOT_FOUND);
         }
     }
 }
