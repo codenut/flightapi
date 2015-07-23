@@ -1,0 +1,8 @@
+target/
+dependency-reduced-pom.xml
+flightapi.iml
+.idea/
+
+*.class
+.DS_Store
+*.log

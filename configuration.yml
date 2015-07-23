@@ -1,0 +1,13 @@
+version:
+  1.0
+
+data:
+  /Users/michael/Desktop/temp/routes.csv
+
+logging:
+  level: INFO
+  appenders:
+    - type: console
+      threshold: ALL
+      timeZone: UTC
+      target: stdout
