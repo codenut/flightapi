@@ -1,8 +1,9 @@
 version:
   1.0
 
-data:
-  /Users/michael/Desktop/temp/routes.csv
+#uncomment to specify external flight data
+#data:
+#  /Users/michael/Desktop/temp/routes.csv
 
 logging:
   level: INFO
