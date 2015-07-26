@@ -14,8 +14,8 @@ public class Route {
 
     public Route(String from, String to) {
         this();
-        this.from = from;
-        this.to = to;
+        this.from = from.toLowerCase();
+        this.to = to.toLowerCase();
     }
 
     public String getFrom() {
@@ -23,7 +23,7 @@ public class Route {
     }
 
     public void setFrom(String from) {
-        this.from = from;
+        this.from = from.toLowerCase();
     }
 
     public String getTo() {
@@ -31,7 +31,7 @@ public class Route {
     }
 
     public void setTo(String to) {
-        this.to = to;
+        this.to = to.toLowerCase();
     }
 
     @Override

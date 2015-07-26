@@ -20,8 +20,12 @@ public class CSVUtil {
             String[] nextLine;
 
             while ((nextLine = reader.readNext()) != null) {
-                put(routeDict, new Route(nextLine[0], nextLine[1]), nextLine[2]);
-                put(routeDict, new Route(nextLine[1], nextLine[0]), nextLine[2]);
+                //create lowercase keys
+                String from = nextLine[0].toLowerCase();
+                String to = nextLine[0].toLowerCase();
+
+                put(routeDict, new Route(from, to), nextLine[2]);
+                put(routeDict, new Route(to, from), nextLine[2]);
             }
 
             return routeDict;
