@@ -2,6 +2,7 @@ package com.flight.api.core;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.flight.api.util.Constants;
 import io.dropwizard.testing.FixtureHelpers;
 import org.junit.Assert;
 import org.junit.Test;
@@ -16,7 +17,7 @@ public class FlightResponseTest {
 
     @Test
     public void serializesToXML() throws IOException {
-        final FlightResponse response = new FlightResponse("Route not found.");
+        final FlightResponse response = new FlightResponse(Constants.ROUTE_NOT_FOUND);
 
         final String expected = MAPPER.writeValueAsString(
                 MAPPER.readValue(FixtureHelpers.fixture("fixtures/message.xml"), FlightResponse.class));
@@ -26,10 +27,10 @@ public class FlightResponseTest {
 
     @Test
     public void deserializesToXML() throws IOException {
-        final FlightResponse response = new FlightResponse("Route not found.");
+        final FlightResponse response = new FlightResponse(Constants.ROUTE_NOT_FOUND);
 
         final FlightResponse expected = MAPPER.readValue(FixtureHelpers.fixture("fixtures/message.xml"), FlightResponse.class);
 
-        Assert.assertEquals(response.getMessage(), expected.getMessage());
+        Assert.assertEquals(response.getError(), expected.getError());
     }
 }

@@ -6,20 +6,21 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 @JacksonXmlRootElement(localName = "root")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FlightResponse {
-    private String message;
+    private String error;
 
     public FlightResponse() {
     }
 
-    public FlightResponse(String message) {
-        this.message = message;
+    public String getError() {
+        return error;
     }
 
-    public String getMessage() {
-        return message;
+    public void setError(String error) {
+        this.error = error;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public FlightResponse(String error) {
+
+        this.error = error;
     }
 }

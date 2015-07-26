@@ -63,6 +63,6 @@ public class RouteResourceTest {
         final Response response =
                 RULE.getJerseyTest().target("/route").request().post(Entity.entity(route, MediaType.APPLICATION_XML));
 
-        Assert.assertEquals(Constants.ROUTE_NOT_FOUND, response.readEntity(FlightResponse.class).getMessage());
+        Assert.assertEquals(Constants.ROUTE_NOT_FOUND, response.readEntity(FlightResponse.class).getError());
     }
 }
