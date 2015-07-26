@@ -2,6 +2,7 @@ package com.flight;
 
 import com.flight.api.core.Airlines;
 import com.flight.api.core.Route;
+import com.flight.api.resources.CitiesResource;
 import com.flight.api.resources.RouteResource;
 import com.flight.api.util.CSVUtil;
 import io.dropwizard.Application;
@@ -27,7 +28,10 @@ public class FlightApplication extends Application<FlightApplicationConfiguratio
         }
 
         final RouteResource routeResource = new RouteResource(routeCache);
+        final CitiesResource citiesResource = new CitiesResource(CSVUtil.getCities(routeCache));
+
         environment.jersey().register(routeResource);
+        environment.jersey().register(citiesResource);
     }
 
     public static void main(String[] args) throws Exception {

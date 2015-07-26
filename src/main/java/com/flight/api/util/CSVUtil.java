@@ -2,6 +2,7 @@ package com.flight.api.util;
 
 import au.com.bytecode.opencsv.CSVReader;
 import com.flight.api.core.Airlines;
+import com.flight.api.core.Cities;
 import com.flight.api.core.Route;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +37,6 @@ public class CSVUtil {
         throw new IllegalArgumentException();
     }
 
-
     private static Map<Route, Airlines> csvToDict(InputStream inputStream) {
         try (CSVReader reader = new CSVReader(new InputStreamReader(inputStream, "utf-8"))) {
             return csvToDict(reader);
@@ -45,7 +45,6 @@ public class CSVUtil {
         }
         throw new IllegalArgumentException();
     }
-
 
     public static Map<Route, Airlines> csvToDict(String filename) {
         try {
@@ -59,6 +58,15 @@ public class CSVUtil {
 
     public static Map<Route, Airlines> csvToDict() {
         return csvToDict(Helper.getInputStream("routes.csv"));
+    }
+
+    public static Cities getCities(Map<Route, Airlines> airlinesMap) {
+        Cities cities = new Cities();
+        for(Route route : airlinesMap.keySet()) {
+            cities.getCities().add(route.getFrom());
+            cities.getCities().add(route.getTo());
+        }
+        return cities;
     }
 
     private static void put(Map<Route, Airlines> map, Route route, String value) {
