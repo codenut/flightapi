@@ -22,7 +22,7 @@ public class CSVUtil {
             while ((nextLine = reader.readNext()) != null) {
                 //create lowercase keys
                 String from = nextLine[0].toLowerCase();
-                String to = nextLine[0].toLowerCase();
+                String to = nextLine[1].toLowerCase();
 
                 put(routeDict, new Route(from, to), nextLine[2]);
                 put(routeDict, new Route(to, from), nextLine[2]);
