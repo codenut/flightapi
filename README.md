@@ -1,6 +1,6 @@
 ## Overview
 
-This project serves a microservice backend for providing available airlines that is operating within a certain rou# Flight API
+This project serves a microservice backend for providing available airlines that is operating within a certain route Flight API
 te.
 
 The project is using the [Java Dropwizard Framework](http://www.dropwizard.io/).
