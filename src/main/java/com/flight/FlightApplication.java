@@ -4,7 +4,7 @@ import com.flight.api.core.Airlines;
 import com.flight.api.core.Route;
 import com.flight.api.resources.CitiesResource;
 import com.flight.api.resources.RouteResource;
-import com.flight.api.util.CSVUtil;
+import com.flight.api.util.Util;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -22,13 +22,13 @@ public class FlightApplication extends Application<FlightApplicationConfiguratio
         Map<Route, Airlines> routeCache;
 
         if(configuration.getData() == null) {
-            routeCache = CSVUtil.csvToDict();
+            routeCache = Util.csvToDict();
         } else {
-            routeCache = CSVUtil.csvToDict(configuration.getData());
+            routeCache = Util.csvToDict(configuration.getData());
         }
 
         final RouteResource routeResource = new RouteResource(routeCache);
-        final CitiesResource citiesResource = new CitiesResource(CSVUtil.getCities(routeCache));
+        final CitiesResource citiesResource = new CitiesResource(Util.getCities(routeCache));
 
         environment.jersey().register(routeResource);
         environment.jersey().register(citiesResource);

@@ -3,7 +3,7 @@ package com.flight.api.resources;
 import com.flight.api.core.Airlines;
 import com.flight.api.core.FlightResponse;
 import com.flight.api.core.Route;
-import com.flight.api.util.CSVUtil;
+import com.flight.api.util.Util;
 import com.flight.api.util.Constants;
 import io.dropwizard.testing.junit.ResourceTestRule;
 import junit.framework.Assert;
@@ -19,7 +19,7 @@ public class RouteResourceTest {
     @ClassRule
     public static final ResourceTestRule RULE = ResourceTestRule.builder()
             .setTestContainerFactory(new GrizzlyTestContainerFactory())
-            .addResource(new RouteResource(CSVUtil.csvToDict()))
+            .addResource(new RouteResource(Util.csvToDict()))
             .build();
 
     @Test

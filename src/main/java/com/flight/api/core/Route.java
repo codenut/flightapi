@@ -14,8 +14,8 @@ public class Route {
 
     public Route(String from, String to) {
         this();
-        this.from = from.toLowerCase();
-        this.to = to.toLowerCase();
+        this.from = from;
+        this.to = to;
     }
 
     public String getFrom() {
@@ -23,7 +23,7 @@ public class Route {
     }
 
     public void setFrom(String from) {
-        this.from = from.toLowerCase();
+        this.from = from;
     }
 
     public String getTo() {
@@ -31,7 +31,7 @@ public class Route {
     }
 
     public void setTo(String to) {
-        this.to = to.toLowerCase();
+        this.to = to;
     }
 
     @Override
@@ -40,12 +40,12 @@ public class Route {
             return false;
         }
         Route that = (Route) o;
-        return this.from.equals(that.from) && this.to.equals(that.to);
+        return this.from.equalsIgnoreCase(that.from) && this.to.equalsIgnoreCase(that.to);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.to, this.from);
+        return Objects.hash(this.to.toLowerCase(), this.from.toLowerCase());
     }
 
     @Override

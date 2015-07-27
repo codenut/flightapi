@@ -11,8 +11,8 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CSVUtil {
-    private static final Logger LOGGER = LoggerFactory.getLogger(CSVUtil.class);
+public class Util {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Util.class);
 
     private static Map<Route, Airlines> csvToDict(CSVReader reader) {
         try {
@@ -21,9 +21,8 @@ public class CSVUtil {
             String[] nextLine;
 
             while ((nextLine = reader.readNext()) != null) {
-                //create lowercase keys
-                String from = nextLine[0].toLowerCase();
-                String to = nextLine[1].toLowerCase();
+                String from = nextLine[0];
+                String to = nextLine[1];
 
                 put(routeDict, new Route(from, to), nextLine[2]);
                 put(routeDict, new Route(to, from), nextLine[2]);

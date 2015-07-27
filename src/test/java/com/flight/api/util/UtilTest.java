@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import java.util.Map;
 
-public class CSVUtilTest {
-    Map<Route, Airlines> routeDict = CSVUtil.csvToDict();
+public class UtilTest {
+    Map<Route, Airlines> routeDict = Util.csvToDict();
 
     @Test
     public void testCSVToDict() {
