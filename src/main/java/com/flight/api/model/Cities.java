@@ -1,4 +1,4 @@
-package com.flight.api.core;
+package com.flight.api.model;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;

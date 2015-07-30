@@ -1,7 +1,7 @@
 package com.flight.api.util;
 
-import com.flight.api.core.Airlines;
-import com.flight.api.core.Route;
+import com.flight.api.model.Airlines;
+import com.flight.api.model.Route;
 import junit.framework.Assert;
 import org.junit.Test;
 

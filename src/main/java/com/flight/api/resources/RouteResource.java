@@ -1,8 +1,8 @@
 package com.flight.api.resources;
 
-import com.flight.api.core.Airlines;
-import com.flight.api.core.FlightResponse;
-import com.flight.api.core.Route;
+import com.flight.api.model.Airlines;
+import com.flight.api.model.FlightResponse;
+import com.flight.api.model.Route;
 import com.flight.api.util.Constants;
 
 import javax.ws.rs.Consumes;

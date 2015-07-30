@@ -1,7 +1,7 @@
 package com.flight.api.resources;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
-import com.flight.api.core.Cities;
+import com.flight.api.model.Cities;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;

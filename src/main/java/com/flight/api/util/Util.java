@@ -1,9 +1,9 @@
 package com.flight.api.util;
 
 import au.com.bytecode.opencsv.CSVReader;
-import com.flight.api.core.Airlines;
-import com.flight.api.core.Cities;
-import com.flight.api.core.Route;
+import com.flight.api.model.Airlines;
+import com.flight.api.model.Cities;
+import com.flight.api.model.Route;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

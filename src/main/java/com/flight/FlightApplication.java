@@ -1,7 +1,7 @@
 package com.flight;
 
-import com.flight.api.core.Airlines;
-import com.flight.api.core.Route;
+import com.flight.api.model.Airlines;
+import com.flight.api.model.Route;
 import com.flight.api.resources.CitiesResource;
 import com.flight.api.resources.RouteResource;
 import com.flight.api.util.Util;
