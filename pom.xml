@@ -15,6 +15,8 @@
         <junit.version>4.12</junit.version>
         <dropwizard.testing.version>0.9.0-rc3</dropwizard.testing.version>
         <jersey.version>2.19</jersey.version>
+        <guice.version>4.0</guice.version>
+        <guava.version>19.0-rc1</guava.version>
     </properties>
 
     <repositories>
@@ -73,6 +75,16 @@
                     <artifactId>junit</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>${guice.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
         </dependency>
     </dependencies>
 
