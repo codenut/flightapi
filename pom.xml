@@ -17,6 +17,8 @@
         <jersey.version>2.19</jersey.version>
         <guice.version>4.0</guice.version>
         <guava.version>19.0-rc1</guava.version>
+        <eclipselink.version>2.6.1-RC1</eclipselink.version>
+        <mysql-connector-java.version>5.1.36</mysql-connector-java.version>
     </properties>
 
     <repositories>
@@ -85,6 +87,21 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>${eclipselink.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-connector-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.inject.extensions</groupId>
+            <artifactId>guice-persist</artifactId>
+            <version>${guice.version}</version>
         </dependency>
     </dependencies>
 

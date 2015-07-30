@@ -1,13 +1,26 @@
 package com.flight.api.model;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Objects;
 
-@JacksonXmlRootElement(localName = "root")
+
+@Entity
+@Table(name = "routes")
+@XmlRootElement(name = "root")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Route {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+    @Column(name = "`from`")
     private String from;
+    @Column(name = "`to`")
     private String to;
+    private String airline;
 
     public Route() {
     }
@@ -16,6 +29,26 @@ public class Route {
         this();
         this.from = from;
         this.to = to;
+    }
+
+    public Route(String airline) {
+        this.airline = airline;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getAirline() {
+        return airline;
+    }
+
+    public void setAirline(String airline) {
+        this.airline = airline;
     }
 
     public String getFrom() {

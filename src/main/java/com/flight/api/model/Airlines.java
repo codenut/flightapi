@@ -11,6 +11,10 @@ public class Airlines extends FlightResponse {
     @JacksonXmlElementWrapper(useWrapping = false)
     private Set<String> airlines;
 
+    public Airlines(Set<String> airlines) {
+        this.airlines = airlines;
+    }
+
     public Airlines() {
         this.airlines = new TreeSet<>();
     }
