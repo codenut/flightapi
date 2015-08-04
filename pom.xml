@@ -19,6 +19,7 @@
         <guava.version>19.0-rc1</guava.version>
         <eclipselink.version>2.6.1-RC1</eclipselink.version>
         <mysql-connector-java.version>5.1.36</mysql-connector-java.version>
+        <csvjdbc.version>1.0.9</csvjdbc.version>
     </properties>
 
     <repositories>
@@ -29,6 +30,10 @@
         <repository>
             <id>central</id>
             <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>pentaho-releases</id>
+            <url>http://repository.pentaho.org/artifactory/repo/</url>
         </repository>
     </repositories>
 
@@ -102,6 +107,11 @@
             <groupId>com.google.inject.extensions</groupId>
             <artifactId>guice-persist</artifactId>
             <version>${guice.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.csvjdbc</groupId>
+            <artifactId>csvjdbc</artifactId>
+            <version>${csvjdbc.version}</version>
         </dependency>
     </dependencies>
 

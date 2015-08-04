@@ -1,0 +1,28 @@
+version:
+  1.0
+
+#uncomment to specify external flight data
+#data:
+#  /Users/michael/Desktop/temp/routes.csv
+
+database:
+  driverClass: org.relique.jdbc.csv.CsvDriver
+  user:
+  password:
+  url: jdbc:relique:csv:/Users/michael/Desktop/temp
+
+server:
+  type: simple
+  applicationContextPath: /
+  #adminContextPath: /admin # If you plan to use an admin path, you'll need to also use non-root app path
+  connector:
+    type: http
+    port: 8080
+
+logging:
+  level: INFO
+  appenders:
+    - type: console
+      threshold: ALL
+      timeZone: UTC
+      target: stdout

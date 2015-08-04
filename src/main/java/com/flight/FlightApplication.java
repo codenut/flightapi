@@ -37,7 +37,6 @@ public class FlightApplication extends Application<FlightApplicationConfiguratio
             routeCache = Util.csvToDict(configuration.getData());
         }
 
-        final RouteResource routeResource = new RouteResource(routeCache);
         final CitiesResource citiesResource = new CitiesResource(Util.getCities(routeCache));
 
         Injector injector = createInjector(configuration);

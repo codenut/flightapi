@@ -20,12 +20,12 @@ public class RouteService implements RouteDao {
 
     public Airlines findAirlines(String from, String to) {
         javax.persistence.Query query = em.createQuery(
-                "SELECT r.airline FROM Route r WHERE " +
+                "SELECT DISTINCT(r.airline) FROM Route r WHERE " +
                 "(r.from = :from AND r.to = :to) or " +
                 "(r.from = :to and r.to = :from)");
 
-        query.setParameter("from", from);
-        query.setParameter("to", to);
+        query.setParameter("from", from.trim());
+        query.setParameter("to", to.trim());
 
         List<String> airlines = (List<String>)query.getResultList()
                                 .stream()

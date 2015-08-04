@@ -16,9 +16,9 @@ public class Route {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(name = "`from`")
+    @Column(name = "origin")
     private String from;
-    @Column(name = "`to`")
+    @Column(name = "destination")
     private String to;
     private String airline;
 
