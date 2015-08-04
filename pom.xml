@@ -13,13 +13,13 @@
         <dropwizard.xml.version>0.9.0-30</dropwizard.xml.version>
         <opencsv.version>2.3</opencsv.version>
         <junit.version>4.12</junit.version>
-        <dropwizard.testing.version>0.9.0-rc3</dropwizard.testing.version>
         <jersey.version>2.19</jersey.version>
         <guice.version>4.0</guice.version>
         <guava.version>19.0-rc1</guava.version>
         <eclipselink.version>2.6.1-RC1</eclipselink.version>
         <mysql-connector-java.version>5.1.36</mysql-connector-java.version>
         <csvjdbc.version>1.0.9</csvjdbc.version>
+        <mockito.version>2.0.2-beta</mockito.version>
     </properties>
 
     <repositories>
@@ -47,7 +47,7 @@
         <dependency>
             <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-testing</artifactId>
-            <version>${dropwizard.testing.version}</version>
+            <version>${dropwizard.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -66,22 +66,6 @@
             <artifactId>opencsv</artifactId>
             <version>${opencsv.version}</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.test-framework.providers</groupId>
-            <artifactId>jersey-test-framework-provider-grizzly2</artifactId>
-            <version>${jersey.version}</version>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>javax.servlet-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>junit</groupId>
-                    <artifactId>junit</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.google.inject</groupId>
@@ -112,6 +96,12 @@
             <groupId>net.sourceforge.csvjdbc</groupId>
             <artifactId>csvjdbc</artifactId>
             <version>${csvjdbc.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-client</artifactId>
+            <version>${dropwizard.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

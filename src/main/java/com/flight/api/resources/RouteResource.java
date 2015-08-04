@@ -9,7 +9,6 @@ import com.google.inject.Inject;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.Map;
 
 @Path("/route")
 @Produces(MediaType.APPLICATION_XML)
@@ -19,12 +18,6 @@ public class RouteResource {
     @Inject
     public RouteResource(RouteDao routeDao) {
         this.routeDao = routeDao;
-    }
-
-    private Map<Route, Airlines> routeCache;
-
-    public RouteResource(Map<Route, Airlines> routeDict) {
-        this.routeCache = routeDict;
     }
 
     @POST
