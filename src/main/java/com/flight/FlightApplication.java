@@ -1,11 +1,13 @@
 package com.flight;
 
+import com.flight.api.config.FlightApplicationConfiguration;
 import com.flight.api.model.Airlines;
 import com.flight.api.model.Route;
 import com.flight.api.resources.CitiesResource;
 import com.flight.api.resources.RouteResource;
 import com.flight.api.util.Util;
 import io.dropwizard.Application;
+import io.dropwizard.jdbi.DBIFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
@@ -19,6 +21,7 @@ public class FlightApplication extends Application<FlightApplicationConfiguratio
 
     @Override
     public void run(FlightApplicationConfiguration configuration, Environment environment) {
+        final DBIFactory dbiFactory = new DBIFactory();
         Map<Route, Airlines> routeCache;
 
         if(configuration.getData() == null) {

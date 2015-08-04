@@ -5,6 +5,12 @@ version:
 #data:
 #  /Users/michael/Desktop/temp/routes.csv
 
+database:
+  driverClass: com.mysql.jdbc.Driver
+  user: root
+  password:
+  url: jdbc://localhost:3307/flightfinder
+
 server:
   type: simple
   applicationContextPath: /

@@ -15,6 +15,7 @@
         <junit.version>4.12</junit.version>
         <dropwizard.testing.version>0.9.0-rc3</dropwizard.testing.version>
         <jersey.version>2.19</jersey.version>
+        <mysql.jdbc.version>5.1.36</mysql.jdbc.version>
     </properties>
 
     <repositories>
@@ -47,6 +48,11 @@
             <version>${dropwizard.version}</version>
         </dependency>
         <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-jdbi</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.yunspace.dropwizard</groupId>
             <artifactId>dropwizard-xml</artifactId>
             <version>${dropwizard.xml.version}</version>
@@ -57,6 +63,11 @@
             <artifactId>opencsv</artifactId>
             <version>${opencsv.version}</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.jdbc.version}</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.test-framework.providers</groupId>
