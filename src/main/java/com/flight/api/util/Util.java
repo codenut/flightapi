@@ -1,15 +1,26 @@
 package com.flight.api.util;
 
 import au.com.bytecode.opencsv.CSVReader;
+import com.flight.api.config.DatabaseConfiguration;
+import com.flight.api.config.FlightApplicationConfiguration;
+import com.flight.api.dao.CityDao;
+import com.flight.api.dao.CityService;
+import com.flight.api.dao.RouteDao;
+import com.flight.api.dao.RouteService;
 import com.flight.api.model.Airlines;
 import com.flight.api.model.Cities;
 import com.flight.api.model.Route;
+import com.google.inject.AbstractModule;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.persist.jpa.JpaPersistModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 public class Util {
     private static final Logger LOGGER = LoggerFactory.getLogger(Util.class);
@@ -73,5 +84,29 @@ public class Util {
             map.put(route, new Airlines());
         }
         map.get(route).getAirlines().add(value);
+    }
+
+    public static Injector createInjector(FlightApplicationConfiguration configuration) {
+        return Guice.createInjector(new AbstractModule() {
+            @Override
+            protected void configure() {
+                bind(RouteDao.class).to(RouteService.class);
+                bind(CityDao.class).to(CityService.class);
+            }
+        }, createJpaModule(configuration.getDatabase()));
+    }
+
+
+    private static JpaPersistModule createJpaModule(DatabaseConfiguration configuration) {
+        Properties properties = new Properties();
+        properties.put("javax.persistence.jdbc.driver", configuration.getDriverClass());
+        properties.put("javax.persistence.jdbc.user", configuration.getUser());
+        properties.put("javax.persistence.jdbc.password", configuration.getPassword());
+        properties.put("javax.persistence.jdbc.url", configuration.getUrl());
+
+        JpaPersistModule jpa = new JpaPersistModule("Default");
+        jpa.properties(properties);
+
+        return jpa;
     }
 }

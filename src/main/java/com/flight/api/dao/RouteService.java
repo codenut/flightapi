@@ -2,14 +2,12 @@ package com.flight.api.dao;
 
 import com.flight.api.model.Airlines;
 import com.flight.api.model.Route;
-import com.flight.api.util.Helper;
 import com.google.inject.Inject;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
@@ -22,7 +20,7 @@ public class RouteService implements RouteDao {
     private EntityManager em;
 
     public Airlines findAirlines(String from, String to) {
-        javax.persistence.Query query = em.createQuery(
+        Query query = em.createQuery(
                 "SELECT distinct(r.airline) FROM Route r WHERE " +
                 "(r.from = :from AND r.to = :to) or " +
                 "(r.from = :to and r.to = :from)");
