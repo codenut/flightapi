@@ -19,8 +19,6 @@ public class FlightApplicationConfiguration extends Configuration {
     @JsonProperty("database")
     private DataSourceFactory dataSourceFactory;
 
-    private String data;
-
     public DataSourceFactory getDataSourceFactory() {
         return dataSourceFactory;
     }
@@ -37,11 +35,4 @@ public class FlightApplicationConfiguration extends Configuration {
         this.version = version;
     }
 
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
 }

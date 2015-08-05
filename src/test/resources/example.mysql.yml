@@ -1,10 +1,6 @@
 version:
   1.0
 
-#uncomment to specify external flight data
-#data:
-#  /Users/michael/Desktop/temp/routes.csv
-
 database:
   driverClass: com.mysql.jdbc.Driver
   user: root

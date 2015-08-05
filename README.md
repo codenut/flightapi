@@ -13,9 +13,13 @@ The project is using the [Java Dropwizard Framework](http://www.dropwizard.io/).
 
 		mvn package
 
-* To run the server run.
+ * To run database migration.
 
-        java -jar target/flightapi-1.0-SNAPSHOT.jar server example.yml
+        java -jar target/flightapi-1.0-SNAPSHOT.jar db migrate example.mysql.yml
+
+ * To run the server run.
+
+        java -jar target/flightapi-1.0-SNAPSHOT.jar server example.mysql.yml
 
 
 * To post data into the application.
@@ -25,7 +29,10 @@ The project is using the [Java Dropwizard Framework](http://www.dropwizard.io/).
 
 ## Settings
 
-The project comes with a built in data of airline routes under csv format. To use an external data, set the "data" value on the example.yml
+The project connects to a database.
 
-	data:
-  		/Users/michael/Desktop/temp/routes.csv
+	database:
+      driverClass: com.mysql.jdbc.Driver
+      user: someuser
+      password: somepassword
+      url: jdbc:mysql://localhost:3307/flightfinder
