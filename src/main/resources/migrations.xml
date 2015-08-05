@@ -5,7 +5,16 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
-    <includeAll path="migrations"/>
+    <changeSet id="0001_create_routes" author="mval">
+        <createTable tableName="routes">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="origin" type="varchar(255)" />
+            <column name="destination" type="varchar(255)"/>
+            <column name="airline" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
 
     <changeSet id="0002_load_routes_csv" author="mval" >
         <loadData file="data/routes.csv" tableName="routes">
