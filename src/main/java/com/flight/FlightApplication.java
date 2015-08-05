@@ -7,6 +7,8 @@ import com.flight.api.util.Util;
 import com.google.inject.Injector;
 import com.google.inject.persist.PersistService;
 import io.dropwizard.Application;
+import io.dropwizard.db.DataSourceFactory;
+import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
@@ -14,7 +16,12 @@ public class FlightApplication extends Application<FlightApplicationConfiguratio
 
     @Override
     public void initialize(Bootstrap<FlightApplicationConfiguration> bootstrap) {
-
+        bootstrap.addBundle(new MigrationsBundle<FlightApplicationConfiguration>() {
+            @Override
+            public DataSourceFactory getDataSourceFactory(FlightApplicationConfiguration configuration) {
+                return configuration.getDataSourceFactory();
+            }
+        });
     }
 
     @Override

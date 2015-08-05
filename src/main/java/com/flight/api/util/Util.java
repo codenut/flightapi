@@ -1,7 +1,6 @@
 package com.flight.api.util;
 
 import au.com.bytecode.opencsv.CSVReader;
-import com.flight.api.config.DatabaseConfiguration;
 import com.flight.api.config.FlightApplicationConfiguration;
 import com.flight.api.dao.CityDao;
 import com.flight.api.dao.CityService;
@@ -14,6 +13,7 @@ import com.google.inject.AbstractModule;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.persist.jpa.JpaPersistModule;
+import io.dropwizard.db.DataSourceFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -93,16 +93,16 @@ public class Util {
                 bind(RouteDao.class).to(RouteService.class);
                 bind(CityDao.class).to(CityService.class);
             }
-        }, createJpaModule(configuration.getDatabase()));
+        }, createJpaModule(configuration.getDataSourceFactory()));
     }
 
 
-    private static JpaPersistModule createJpaModule(DatabaseConfiguration configuration) {
+    private static JpaPersistModule createJpaModule(DataSourceFactory dataSourceFactory) {
         Properties properties = new Properties();
-        properties.put("javax.persistence.jdbc.driver", configuration.getDriverClass());
-        properties.put("javax.persistence.jdbc.user", configuration.getUser());
-        properties.put("javax.persistence.jdbc.password", configuration.getPassword());
-        properties.put("javax.persistence.jdbc.url", configuration.getUrl());
+        properties.put("javax.persistence.jdbc.driver", dataSourceFactory.getDriverClass());
+        properties.put("javax.persistence.jdbc.user", dataSourceFactory.getUser());
+        properties.put("javax.persistence.jdbc.password", dataSourceFactory.getPassword());
+        properties.put("javax.persistence.jdbc.url", dataSourceFactory.getUrl());
 
         JpaPersistModule jpa = new JpaPersistModule("Default");
         jpa.properties(properties);

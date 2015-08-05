@@ -20,6 +20,7 @@
         <mysql-connector-java.version>5.1.36</mysql-connector-java.version>
         <csvjdbc.version>1.0.9</csvjdbc.version>
         <mockito.version>2.0.2-beta</mockito.version>
+        <postgres.version>9.4-1201-jdbc41</postgres.version>
     </properties>
 
     <repositories>
@@ -102,6 +103,24 @@
             <artifactId>dropwizard-client</artifactId>
             <version>${dropwizard.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-db</artifactId>
+            <version>${dropwizard.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-migrations</artifactId>
+            <version>${dropwizard.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgres.version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

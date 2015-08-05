@@ -1,8 +1,11 @@
 package com.flight.api.config;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
+import io.dropwizard.db.DataSourceFactory;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by michael on 7/23/15.
@@ -12,16 +15,18 @@ public class FlightApplicationConfiguration extends Configuration {
     private String version;
 
     @Valid
-    private DatabaseConfiguration database;
+    @NotNull
+    @JsonProperty("database")
+    private DataSourceFactory dataSourceFactory;
 
     private String data;
 
-    public DatabaseConfiguration getDatabase() {
-        return database;
+    public DataSourceFactory getDataSourceFactory() {
+        return dataSourceFactory;
     }
 
-    public void setDatabase(DatabaseConfiguration database) {
-        this.database = database;
+    public void setDataSourceFactory(DataSourceFactory dataSourceFactory) {
+        this.dataSourceFactory = dataSourceFactory;
     }
 
     public String getVersion() {

@@ -6,10 +6,10 @@ version:
 #  /Users/michael/Desktop/temp/routes.csv
 
 database:
-  driverClass: org.relique.jdbc.csv.CsvDriver
-  user:
-  password:
-  url: jdbc:relique:csv:classpath:data
+  driverClass: org.postgresql.Driver
+  user: ekpkhhbdftavcz
+  password: nqtinfS3tsCVJ4Hslw9nP_4KWW
+  url: jdbc:postgresql://ec2-204-236-226-63.compute-1.amazonaws.com:5432/d3d6p893vdp30b
 
 server:
   type: simple

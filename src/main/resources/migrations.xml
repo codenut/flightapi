@@ -6,4 +6,12 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
     <includeAll path="migrations"/>
+
+    <changeSet id="0002_load_routes_csv" author="mval" >
+        <loadData file="data/routes.csv" tableName="routes">
+            <column name="origin" type="STRING"/>
+            <column name="destination" type="STRING"/>
+            <column name="airline" type="STRING"/>
+        </loadData>
+    </changeSet>
 </databaseChangeLog>
