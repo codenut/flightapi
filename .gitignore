@@ -6,3 +6,4 @@ flightapi.iml
 *.class
 .DS_Store
 *.log
+*.db
